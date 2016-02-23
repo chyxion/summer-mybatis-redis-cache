@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+        http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>me.chyxion.summer</groupId>
+	<artifactId>summer-mybatis-redis-cache</artifactId>
+	<version>0.0.1-RELEASE</version>
+	<name>Summer MyBatis Redis Cache</name>
+	<packaging>jar</packaging>
+
+    <parent>
+        <groupId>cn.com.flaginfo</groupId>
+        <artifactId>flaginfo-parent</artifactId>
+        <version>0.0.6-RELEASE</version>
+    </parent>
+
+	<dependencies>
+		<dependency>
+            <groupId>cn.com.flaginfo.echat</groupId>
+            <artifactId>echat-redis</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+			<scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+			<scope>test</scope>
+        </dependency>
+	</dependencies>
+</project>
