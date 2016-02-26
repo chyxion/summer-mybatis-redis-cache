@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.ibatis.cache.Cache;
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.lang3.StringUtils;
 import java.util.concurrent.locks.ReadWriteLock;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -29,9 +28,9 @@ public final class RedisCache implements Cache {
 	 * @param id cache id
 	 */
 	public RedisCache(final String id) {
-		if (StringUtils.isBlank(id)) {
+		if (id == null) {
 			throw new IllegalArgumentException(
-				"Cache Instance Requires An ID.");
+				"Cache Instance ID Could Not Be Null");
 		}
 		log.info("Create Redis Cache [{}].", id);
 		this.id = id;
