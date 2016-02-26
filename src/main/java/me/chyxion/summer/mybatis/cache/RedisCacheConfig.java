@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Aug 4, 2015 5:17:05 PM
  */
 public class RedisCacheConfig {
-	@Value("${mybatis.cache.expire:480}")
-	private int expire;
+	@Value("${mybatis.cache.expire:480000}")
+	private long expire;
 	@Autowired
 	private RedisTemplate<String, Object> redisTpl;
 	private static RedisCacheConfig instance;
@@ -34,14 +34,14 @@ public class RedisCacheConfig {
 	/**
 	 * @return the expire
 	 */
-	public int getExpire() {
+	public long getExpire() {
 		return expire;
 	}
 
 	/**
 	 * @param expire the expire to set
 	 */
-	public void setExpire(int expire) {
+	public void setExpire(long expire) {
 		this.expire = expire;
 	}
 

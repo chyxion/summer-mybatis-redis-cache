@@ -12,7 +12,7 @@ import org.springframework.data.redis.core.ValueOperations;
 /**
  * @version 0.0.1
  * @since 0.0.1
- * @author chyxion <br>
+ * @author Shaun Chyxion <br>
  * chyxion@163.com <br>
  * Feb 23, 2016 6:03:39 PM
  */
@@ -61,7 +61,7 @@ public final class RedisCache implements Cache {
 	public void putObject(final Object key, final Object value) {
 		log.debug("Put Object Key [{}], Value [{}].", key, value);
 		valueOp.set(prefixKey(key), 
-			value, config.getExpire(), TimeUnit.SECONDS);
+			value, config.getExpire(), TimeUnit.MILLISECONDS);
 	}
 	
 	/**
