@@ -11,23 +11,12 @@
 	<name>Summer MyBatis Redis Cache</name>
     <description>MyBatis Redis Cache</description>
     <url>https://github.com/chyxion/summer-mybatis-redis-cache</url>
-
-    <licenses>
-        <license>
-            <name>The MIT License (MIT)</name>
-            <url>http://mit-license.org</url>
-        </license>
-    </licenses>
-
-	<developers>
-		<developer>
-			<id>chyxion</id>
-			<name>Shaun Chyxion</name>
-			<email>chyxion@163.com</email>
-			<url>http://chyxion.github.io</url>
-            <timezone>+8</timezone>
-		</developer>
-	</developers>
+    
+    <parent>
+        <groupId>me.chyxion</groupId>
+        <artifactId>maven-parent</artifactId>
+        <version>0.0.1-RELEASE</version>
+    </parent>
 
     <scm>
         <url>https://github.com/chyxion/summer-mybatis-redis-cache</url>
@@ -36,28 +25,21 @@
     </scm>
 
 	<properties>
-        <maven.compiler.source>1.5</maven.compiler.source>
-        <maven.compiler.target>1.5</maven.compiler.target>
-        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
-        <slf4j.version>1.7.13</slf4j.version>
-        <log4j.version>2.4.1</log4j.version>
-        <javadoc.plugin.version>2.10.3</javadoc.plugin.version>
-        <javadoc.version>5</javadoc.version>
-        <gpg.plugin.version>1.6</gpg.plugin.version>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
 
 	<dependencies>
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
-            <version>1.6.0.RELEASE</version>
+            <version>1.6.4.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.2.8</version>
         </dependency>
-
 		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -66,81 +48,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.4</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${javadoc.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <links>
-                                <link>http://docs.oracle.com/javase/${javadoc.version}/docs/api</link>
-                            </links>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>2.6</version>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <addClasspath>true</addClasspath>
-                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                                </manifest>
-                                <manifestEntries>
-                                    <Built-By>Shaun Chyxion</Built-By>
-                                </manifestEntries>
-                            </archive>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${gpg.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <distributionManagement>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
 </project>

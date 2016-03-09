@@ -1,14 +1,11 @@
 package me.chyxion.summer.mybatis.cache.support;
 
-import me.chyxion.summer.mybatis.cache.CacheTool;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.ibatis.cache.Cache;
-
 import javax.annotation.PostConstruct;
-
 import org.apache.ibatis.session.Configuration;
+import me.chyxion.summer.mybatis.cache.CacheTool;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
