@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @version 0.0.1
- * @since 3.1.1
- * @author Shaun Chyxion <br>
- * chyxion@163.com <br>
- * Aug 4, 2015 5:17:05 PM
+ * @since 0.0.1
+ * @author Shaun Chyxion
  */
 public class RedisCacheConfig {
 	@Value("${mybatis.cache.expire:480000}")
