@@ -18,6 +18,7 @@ import org.springframework.data.redis.core.ValueOperations;
 public final class RedisCache implements Cache {
 	private static final Logger log = 
 		LoggerFactory.getLogger(RedisCache.class);
+
 	private String id;
 	private RedisTemplate<String, Object> redisTpl;
 	private ValueOperations<String, Object> valueOp;
@@ -27,7 +28,7 @@ public final class RedisCache implements Cache {
 	 * construct cache 
 	 * @param id cache id
 	 */
-	public RedisCache(final String id) {
+	public RedisCache(String id) {
 		if (id == null) {
 			throw new IllegalArgumentException(
 				"Cache Instance ID Could Not Be Null");
