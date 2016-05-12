@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @version 0.0.1
  * @since 0.0.1
- * @author Shaun Chyxion
+ * @author Shaun Chyxion <br>
+ * chyxion@163.com <br>
+ * May 12, 2016 9:02:37 PM
  */
 public class RedisCacheConfig {
 	@Value("${mybatis.cache.expire:480000}")
@@ -18,7 +20,7 @@ public class RedisCacheConfig {
 	private static RedisCacheConfig instance;
 
 	@PostConstruct
-	public void init() {
+	void init() {
 		instance = this;
 	}
 

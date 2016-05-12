@@ -52,7 +52,7 @@ public final class RedisCache implements Cache {
 	 */
 	public int getSize() {
 		log.debug("Get Cache [{}] Size.", id);
-		return redisTpl.keys(prefixKey("*")).size();
+		return redisTpl.keys(prefixedKey("*")).size();
 	}
 
 	/**
@@ -60,7 +60,7 @@ public final class RedisCache implements Cache {
 	 */
 	public void putObject(final Object key, final Object value) {
 		log.debug("Put Object Key [{}], Value [{}].", key, value);
-		valueOp.set(prefixKey(key), 
+		valueOp.set(prefixedKey(key), 
 			value, config.getExpire(), TimeUnit.MILLISECONDS);
 	}
 	
@@ -68,7 +68,7 @@ public final class RedisCache implements Cache {
 	 * {@inheritDoc}
 	 */
 	public Object getObject(final Object key) {
-		Object value = valueOp.get(prefixKey(key));
+		Object value = valueOp.get(prefixedKey(key));
 		log.debug("Get Object Key [{}], Value [{}].", key, value);
 		return value;
 	}
@@ -78,7 +78,7 @@ public final class RedisCache implements Cache {
 	 */
 	public Object removeObject(final Object key) {
 		log.debug("Remove Object Key [{}].", key);
-		redisTpl.delete(prefixKey(key));
+		redisTpl.delete(prefixedKey(key));
 		return 1;
 	}
 	
@@ -87,7 +87,7 @@ public final class RedisCache implements Cache {
 	 */
 	public void clear() {
 		log.debug("Clear Cache Key [{}].", id);
-		redisTpl.delete(redisTpl.keys(prefixKey("*")));
+		redisTpl.delete(redisTpl.keys(prefixedKey("*")));
 	}
 	
 	/**
@@ -110,17 +110,18 @@ public final class RedisCache implements Cache {
 	// private methods
 
 	/**
+	 * return prefixed cache key
 	 * @param key cache key
 	 * @return prefixed key
 	 */
-	private String prefixKey(Object key) {
+	String prefixedKey(Object key) {
 		return prefix() + String.valueOf(key);
 	}
 
 	/**
 	 * @return cache prefix
 	 */
-	private String prefix() {
+	String prefix() {
 		return id + ":";
 	}
 }

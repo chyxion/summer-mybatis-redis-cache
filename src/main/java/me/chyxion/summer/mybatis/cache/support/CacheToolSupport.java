@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class CacheToolSupport implements CacheTool {
 	private static final Logger log = 
 		LoggerFactory.getLogger(CacheToolSupport.class);
+
 	@Autowired
 	private SqlSessionFactory ssf;
 	private Configuration configuration;
@@ -48,8 +49,9 @@ public class CacheToolSupport implements CacheTool {
 
 	// --
 	// private methods
+
 	@PostConstruct
-	private void init() {
+	void init() {
 		 configuration = ssf.getConfiguration();
 	}
 }

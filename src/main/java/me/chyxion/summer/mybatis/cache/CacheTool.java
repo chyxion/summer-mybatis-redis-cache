@@ -12,11 +12,13 @@ import org.apache.ibatis.cache.Cache;
 public interface CacheTool {
 
 	/**
+	 * clear cache
 	 * @param mapper mapper
 	 */
 	void clearCache(Class<?> mapper);
 	
 	/**
+	 * clear cache
 	 * @param mapper mapper
 	 * @return cache of mapper
 	 */
